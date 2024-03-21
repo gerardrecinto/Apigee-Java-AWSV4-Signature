@@ -10,6 +10,10 @@
     <Name>private.secretAccessKey</Name>
     <Value>wJalrXUtnFEMI/K7MDENG+bPxRfiCYEXAMPLEKEY</Value>
   </AssignVariable>
+ <AssignVariable>
+    <Name>private.securityToken</Name>
+    <Value>wJalrXUtnFEMI/K7MDENG+bPxRfiCYEXAMPLESESSIONTOKEN</Value>
+  </AssignVariable>
 
   <AssignVariable>
     <Name>aws-service</Name>
