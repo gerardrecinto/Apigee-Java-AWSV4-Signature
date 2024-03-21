@@ -5,6 +5,7 @@
         <Property name="region">us-west-1</Property>
         <Property name="key">{private.aws-key}</Property>
         <Property name="secret">{private.aws-secret-key}</Property>
+        <Property name="securityToken">{private.aws-security-token}</Property>
         <Property name="source">outgoingAwsMessage</Property>
         <Property name="sign-content-sha256">true</Property> <!-- optional -->
         <Property name="debug">true</Property>

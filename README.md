@@ -348,7 +348,7 @@ message. Instead, specify these properties:
 * request-expiry
 * output
 
-The policy will compute the pre-signed URL and place it into the context variable you specify with the output property.
+The policy will compute the pre-signed URL and place it into the context variable you specify with the output property. Security Token is same as Session Token.
 
 Example:
 
@@ -360,6 +360,7 @@ Example:
     <Property name="region">us-west-1</Property>
     <Property name="key">{private.aws-key}</Property>
     <Property name="secret">{private.aws-secret-key}</Property>
+    <Property name="securityToken">{private.aws-security-token}</Property>
     <Property name="request-verb">GET</Property>
     <Property name="request-path">/path-to-object.txt</Property>
     <Property name="request-expiry">86400</Property> <!-- in seconds -->

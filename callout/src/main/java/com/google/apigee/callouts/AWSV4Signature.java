@@ -101,6 +101,11 @@ public class AWSV4Signature extends SignatureCalloutBase implements Execution {
     return _getRequiredString(msgCtxt, "key");
   }
 
+  private String getSecurityToken(MessageContext msgCtxt) {
+    return _getRequiredString(msgCtxt, "securityToken");
+  }
+
+
   private String getSecret(MessageContext msgCtxt) {
     return _getRequiredString(msgCtxt, "secret");
   }
@@ -182,6 +187,7 @@ public class AWSV4Signature extends SignatureCalloutBase implements Execution {
     String contentSha256;
     String secret;
     String key;
+    String securityToken;
     boolean wantSignedContentSha256;
     boolean insureTrailingSlashOnPath;
     boolean debug;
@@ -220,7 +226,7 @@ public class AWSV4Signature extends SignatureCalloutBase implements Execution {
       secret = getSecret(msgCtxt);
       insureTrailingSlashOnPath = wantInsureTrailingSlashOnPath(msgCtxt);
       key = getKey(msgCtxt);
-
+      securityToken = getSecurityToken(msgCtxt);
       sourceMessage = getSource(msgCtxt);
 
       if (sourceMessage != null) {
@@ -291,6 +297,7 @@ public class AWSV4Signature extends SignatureCalloutBase implements Execution {
         // pre-load qparams here
         encodedQparams.add("X-Amz-Algorithm=AWS4-HMAC-SHA256");
         encodedQparams.add("X-Amz-Credential=" + uriEncode(key + "/" + scope, true));
+        encodedQparams.add("X-Amz-Security-Token=" + securityToken);
         encodedQparams.add("X-Amz-Date=" + dateTimeStamp);
         encodedQparams.add("X-Amz-Expires=" + expiry);
         encodedQparams.add("X-Amz-SignedHeaders=host");
