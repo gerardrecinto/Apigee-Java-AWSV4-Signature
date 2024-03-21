@@ -102,7 +102,7 @@ public class AWSV4Signature extends SignatureCalloutBase implements Execution {
   }
 
   private String getSecurityToken(MessageContext msgCtxt) {
-    return _getRequiredString(msgCtxt, "security-token");
+    return _getRequiredString(msgCtxt, "securityToken");
   }
 
 
